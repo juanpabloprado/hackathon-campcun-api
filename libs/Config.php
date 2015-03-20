@@ -14,7 +14,7 @@ define("SKINROUTE", URL."skins/");
 define("API_MODE",1);
 define("APP_NAME", "CAMP-CUN API");
 define("API_KEY","4a11a5e9145df71c8c401c72e7d4378b0af9485714f61f32e27a4cca345d3277");
-define("CREDENTIALS_NEEDED", 1);
+define("CREDENTIALS_NEEDED", 0);
 define("SESSION_TIME", 5);
 define("HASH_KEY", "20hAcKaToN15-CC");
 
@@ -30,5 +30,3 @@ define("GOOGLE_FONTS", "Open+Sans:400,300"); // FALSE for none
 define("META_TAGS", "");
 define("META_DESCRIPTION_ES", "");
 define("META_DESCRIPTION_EN", "");
-
-?>
