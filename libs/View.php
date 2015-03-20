@@ -4,7 +4,7 @@
     public $jsRoute;
     public $cssRoute;
     public $imgRoute;
-	public $tools;
+    public $tools;
     
     public function __construct(Request $r) {
         $this->lang = $r->getLang();
@@ -39,7 +39,6 @@
         $this->imgRoute = (!$skin) ? SKINROUTE."img/" : SKINROUTE.$skin."/img/";
         $skinRoute = (!$skin) ? SKINPATH : SKINPATH.$skin.DS;
         $skinPath = (!$skin) ? VIEWSPATH : VIEWSPATH.$skin.DS;
-        
         if(is_readable($routeView)){
             if(is_readable($skinRoute)){
                 include_once VIEWSPATH.DS."includes".DS."head.php";

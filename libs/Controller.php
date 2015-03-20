@@ -279,7 +279,12 @@
             } else {
                 $actualRoute = $route;
             }
-            $actualUrl = URL.$actualRoute;
+            if(FRIENDLY_URL){
+                $actualUrl = URL.$actualRoute;
+            } else {
+                $actualUrl = URL."index.php?url=".$actualRoute;
+            }
+            
         } else{
             $actualUrl = URL;
         }
