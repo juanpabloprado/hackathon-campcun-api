@@ -18,11 +18,13 @@
     }
 
     public function index() {
+        if(!Session::getKey("loggedIn")){  $this->redirect("login"); }
         $this->view->places = $this->m->getEm();
         $this->view->render("places/index");
     }
     
     public function addNew(){
+        if(!Session::getKey("loggedIn")){  $this->redirect("login"); }
         $userModel = $this->loadModel("user");
         $this->view->users = $userModel->getEm();
         if(isset($_POST) && !empty($_POST)){
@@ -51,6 +53,7 @@
     }
     
     public function viewEdit($id) {
+        if(!Session::getKey("loggedIn")){  $this->redirect("login"); }
         $userModel = $this->loadModel("user");
         $this->view->users = $userModel->getEm();
         $this->view->place = $this->m->get($id);
@@ -80,6 +83,7 @@
     }
     
     public function removeOne($id){
+        if(!Session::getKey("loggedIn")){  $this->redirect("login"); }
         $params = array(
             "place_id" => $id
         );

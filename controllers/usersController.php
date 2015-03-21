@@ -18,11 +18,13 @@
     }
 
     public function index() {
+        if(!Session::getKey("loggedIn")){  $this->redirect("login"); }
         $this->view->users = $this->m->getEm();
         $this->view->render("users/index");
     }
     
     public function addNew(){
+        if(!Session::getKey("loggedIn")){  $this->redirect("login"); }
         if(isset($_POST) && !empty($_POST)){
             $clean = $this->clean($_POST);
             $params = array(
@@ -43,6 +45,7 @@
     }
     
     public function viewEdit($id) {
+        if(!Session::getKey("loggedIn")){  $this->redirect("login"); }
         $this->view->user = $this->m->get($id);
         if(isset($_POST) && !empty($_POST)){
             $clean = $this->cleanArray($_POST);
@@ -67,6 +70,7 @@
     }
     
     public function removeOne($id){
+        if(!Session::getKey("loggedIn")){  $this->redirect("login"); }
         $params = array(
             "user_id" => $id
         );

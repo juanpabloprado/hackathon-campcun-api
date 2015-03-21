@@ -32,7 +32,7 @@
                         <a href="<?=URL?>index.php?url=todos/index">To-dos</a>
                     </li>
                     <li>
-                        <a href="">Logout</a>
+                        <a href="<?=URL?>index.php?url=login/logout">Logout</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
