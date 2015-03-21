@@ -62,8 +62,9 @@
             </ul>
         </div>
     </body>
-    <script src="views/home/js/angular.js"></script>
-    <script src="views/home/js/jquery.js"></script>
-    <script src="views/home/js/bootstrap.js"></script>
-    <script src="views/home/js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="views/home/js/angular.js" type="text/javascript"></script>
+    <script src="views/home/js/jquery.js" type="text/javascript"></script>
+    <script src="views/home/js/bootstrap.js" type="text/javascript"></script>
+    <script src="views/home/js/app.js" type="text/javascript"></script>
 </html>
