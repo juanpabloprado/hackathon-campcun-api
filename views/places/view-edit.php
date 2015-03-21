@@ -11,7 +11,6 @@
     <form id="editPlaceForm" action="<?=URL?>index.php?url=places/viewEdit/<?=$this->place["id"]?>" method="POST" enctype="UTF-8">
         
         <div class="form-group col-sm-12">
-            *
             <select name="user_id" id="userId" class="form-control">
                 <? foreach($this->users as $user):?>
                 <option <?=($user["id"]==$this->place["user_id"])?"selected":""?> value="<?=$user["id"]?>"><?=$user["name"]?></option>
@@ -77,11 +76,10 @@
     $(document).ready(function(){
         $("#editPlace").click(function(e){
             e.preventDefault();
-            var userId = $("#userId").val();
             var latitud = $("#latitud").val();
             var longitud = $("#longitud").val();
             var name = $("#name").val();
-            if(userId !== "" && latitud !== "" && longitud !== "" && name !== ""){
+            if(latitud !== "" && longitud !== "" && name !== ""){
                 $("#editPlaceForm").submit();
             } else {
                 $("#alert").show();

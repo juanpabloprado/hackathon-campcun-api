@@ -11,7 +11,6 @@
     <form id="addPlaceForm" action="<?=URL?>index.php?url=places/addNew" method="POST" enctype="UTF-8">
         
         <div class="form-group col-sm-12">
-            *
             <select name="user_id" id="userId" class="form-control">
                 <option selected>Selecciona un usuario</option>
                 <? foreach($this->users as $user):?>
@@ -72,11 +71,10 @@
     $(document).ready(function(){
         $("#addPlace").click(function(e){
             e.preventDefault();
-            var userId = $("#userId").val();
             var latitud = $("#latitud").val();
             var longitud = $("#longitud").val();
             var name = $("#name").val();
-            if(userId !== "" && latitud !== "" && longitud !== "" && name !== ""){
+            if(latitud !== "" && longitud !== "" && name !== ""){
                 $("#addPlaceForm").submit();
             } else {
                 $("#alert").show();
