@@ -25,7 +25,7 @@
         </div>
         <div class="form-group col-sm-12">
             <label>Dirección</label>
-            <textarea name="address" cols="30" rows="3"></textarea>
+            <textarea name="address" cols="30" rows="3" class="form-control"></textarea>
         </div>
         <div class="form-group col-sm-12">
             <input class="form-control" type="text" name="phone" placeholder="Teléfono" />
@@ -52,8 +52,8 @@
         <div class="form-group col-sm-12">
             <div class="col-sm-12">
                 *<label class="text-left">Selecciona un lugar en el mapa</label>
-                <input id="latitud" type="hidden" name="latitude" placeholder="Latitud" />
-                <input id="longitud" type="hidden" name="longitude" placeholder="Longitud"  />
+                <input id="latitud" type="text" name="latitude" placeholder="Latitud" />
+                <input id="longitud" type="text" name="longitude" placeholder="Longitud"  />
             </div>
         </div>
         <div class="form-group col-sm-12">
