@@ -15,5 +15,9 @@
         $this->view->todos = $todoModel->getEm();
         $this->view->render("home/index");
     }
+    
+    public function webView(){
+        $this->view->renderPartial("home/web-view");
+    }
 
 }
