@@ -39,18 +39,21 @@
             <img width="200px" height="200px" src="" />
         </div>
         <div class="form-group col-sm-12">
-            <input type="number" name="price_per_person" class="form-control" placeholder="Precio por persona" /> USD
+            <div class="input-group">
+                <input type="number" class="form-control" name="price_per_person" id="exampleInputAmount" placeholder="Precio por persona">
+                <div class="input-group-addon">USD</div>
+            </div>
         </div>
         <div class="form-group col-sm-12">
             <label class="form-inline">
             <input class="form-control" type="checkbox" name="pets" />
-             Confirmado
+              Acepta mascotas? 
             </label>
         </div>
         <hr />
         <div class="form-group col-sm-12">
             <div class="col-sm-12">
-                *<label class="text-left">Selecciona un lugar en el mapa</label>
+                *<label class="text-left">Coloca un marker en el mapa o indica latitud y longitud:</label>
                 <input id="latitud" type="text" name="latitude" placeholder="Latitud" />
                 <input id="longitud" type="text" name="longitude" placeholder="Longitud"  />
             </div>
