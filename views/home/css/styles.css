@@ -6,10 +6,28 @@
 body {
     
 }
+#subMenu {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 50px;
+    height: 50px;
+    background: #9CADCE;
+    border-radius: 0;
+    padding-right: 20px;
+}
+#subMenu ul li a {
+    color: white;
+    cursor: pointer;
+}
+#subMenu ul li a:hover {
+    background: #333;
+}
 #viewContent {
     width: 100%;
     display: block;
     position: fixed;
+    z-index: -2;
     overflow: hidden;
     top: 50px;
     bottom: 50px;
@@ -18,8 +36,32 @@ body {
 }
 #mainMenu {
     background: #134074 !important;
+    max-height: 50px !important;
 }
-#tabs {
+#mainMenu .navbar-header {
+    width: 100% !important;
+}
+#mainMenu a.link {
+    line-height: 50px;
+    vertical-align: middle;
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
+}
+#placeFooter a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border-top: 4px solid #9CADCE;
+}
+#placeFooter a:hover {
+    background: #52B2CF;
+}
+#tabs, #placeFooter {
     width: 100%;
     display: block;
     position: fixed;
@@ -35,7 +77,7 @@ body {
 }
 #tabs ul li {
     display: block;
-    width: 33%;
+    width: 33.33%;
     height: 50px;
     float: left;
 }
@@ -49,9 +91,11 @@ body {
     color: white;
     text-decoration: none;
     cursor: pointer;
+    border-top: 4px solid #9CADCE;
 }
 #tabs ul li a.current {
     background: #52B2CF;
+    border-top: 4px solid #D1CFE2;
 }
 #tabs ul li a:hover {
     background: #52B2CF;
@@ -97,4 +141,38 @@ body {
     margin: 0 auto;
     height: 30px;
     margin: 10px 0;
+}
+.scroll {
+    overflow-y: scroll;
+}
+.half {
+    height: 50%;
+    width: 100%;
+    display: block;
+}
+.infoList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.infoList li {
+    width: 100%;
+    min-height: 50px;
+    display: block;
+    border-bottom: 1px solid #D1CFE2; 
+    padding: 10px 20px;
+}
+.infoList li strong {
+    margin-right: 10px;
+    font-size: 13px;
+    color: #134074;
+    min-width: 80px;
+    display: block;
+    float: left;
+}
+.infoList li span {
+    font-size: 11px;
+    color: #333;
+    display: block;
+    float: left;
 }

@@ -1,8 +1,12 @@
 'use strict';
-var App = angular.module('campCunApp', []);
+var App = angular.module('campCunApp', ['angular-loading-bar']);
 
 App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
     function (scope, AppF, Local) {
+        scope.changeTab = function(tab){
+            AppF.mainView = tab;
+            Local.setData("tab",AppF.mainView);
+        }
         var setData = function(when){
             if(when === "afterLocal"){
                 AppF.places = Local.getData("places");
@@ -47,15 +51,54 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
         }
     }]);
 
-App.controller('tabsCtrl', ['$scope', 'AppF',
-    function (scope, AppF) {
-        
+App.controller('tabsCtrl', ['$scope', 'AppF','LocalS',
+    function (scope, AppF, Local) {
+        scope.saveTodo = function(todo){
+            for(var t in AppF.todos){
+                if(AppF.todos[t].id == todo.id){
+                    AppF.todos[t].checked = todo.checked;
+                }
+            }
+            Local.setData("todos",AppF.todos);
+        }
+        scope.goToPlace = function(place){
+            AppF.mainView = "place";
+            AppF.place = place;
+            scope.initialize = function() {
+                if(AppF.place.latitude !== ""){
+                    var mapOptions = {
+                      center: { lat: parseFloat(AppF.place.latitude), lng: parseFloat(AppF.place.longitude)},
+                      zoom: 6,
+                      mapTypeId: google.maps.MapTypeId.TERRAIN
+                    };
+                    var map = new google.maps.Map(document.getElementById('placeMap'), mapOptions);
+                    var myLatlng = new google.maps.LatLng(AppF.place.latitude,AppF.place.longitude);
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        title:AppF.place.name,
+                        icon: AppF.path+"/img/marker.png"
+                    });
+                } else {
+                    var mapOptions = {
+                      center: { lat: 21.002357, lng: -87.170852},
+                      zoom: 6,
+                      mapTypeId: google.maps.MapTypeId.TERRAIN
+                    };
+                    var map = new google.maps.Map(document.getElementById('placeMap'), mapOptions);
+                } 
+            }
+            $(document).ready(function(){
+                scope.initialize();
+            });
+        }
     }]);
 
-App.factory('AppF', ['$q','AjaxS',
-    function ($q, Ajax) {
+App.factory('AppF', ['$q','AjaxS','LocalS',
+    function ($q, Ajax, Local) {
         return {
-            mainView: "map",
+            mainView: (Local.getData("tab")) ? Local.getData("tab") : "map",
+            subMenu: false,
+            loggedIn: false,
             path: "views/home",
 //            api: "http://tu-desarrollo.com/apps/camp-cun-api/",
             api: "index.php?url=",
@@ -81,6 +124,21 @@ App.directive('directory', ['AppF',
             }
         };
     }]);
+
+App.directive('place', ['AppF',
+    function (AppF) {
+        return {
+            strict: "E",
+            scope: true,
+            transclude: true,
+            templateUrl: AppF.path+"/place.html",
+            controller: "tabsCtrl",
+            link: function (scope, ele, attr, ctrl) {
+                
+            }
+        };
+    }]);
+
 App.directive('todos', ['AppF',
     function (AppF) {
         return {
