@@ -80,7 +80,7 @@
 
         
     function placeMarker(location) {
-        var image = '<?=$this->imagesRoute?>marker.png';
+        var image = '<?=$this->imgRoute?>marker.png';
          var marker = new google.maps.Marker({
              position: location, 
              map: map,

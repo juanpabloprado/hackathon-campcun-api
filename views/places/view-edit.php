@@ -82,7 +82,7 @@
       center: myLatlng
     }
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    var image = '<?=$this->imagesRoute?>marker.png';
+    var image = '<?=$this->imgRoute?>marker.png';
     var marker = new google.maps.Marker({
         position: myLatlng,
         title:"<?=$this->place["name"]?>",
