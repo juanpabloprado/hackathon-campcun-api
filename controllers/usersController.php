@@ -1,4 +1,4 @@
-<?php class usersController extends Controller {
+<?php  class usersController extends Controller {
 
     public function __construct() {
         parent::__construct();
@@ -28,11 +28,12 @@
             $params = array(
                 "user" => array(
                     "name" => $clean["name"],
-                    "password" => $clean["password"],
+                    "email" => $clean["email"],
+                    "password" => Tool::getHash("sha256", $clean["password"], HASH_KEY),
                     "state" => $clean["state"],
                     "city" => $clean["city"],
                     "company" => $clean["company"],
-                    "confirmed" => (int)$clean["confirmed"]
+                    "confirmed" => (isset($clean["confirmed"]) && $clean["confirmed"] == "on") ? 1 :  0
                 )
             );
             $this->m->add($params);
@@ -43,22 +44,22 @@
     
     public function viewEdit($id) {
         $this->view->user = $this->m->get($id);
-        echo "<pre>";
-        var_dump($this->view->user);
-        die();
         if(isset($_POST) && !empty($_POST)){
-            $clean = $this->clean($_POST);
+            $clean = $this->cleanArray($_POST);
             $params = array(
                 "user" => array(
                     "name" => $clean["name"],
-                    "password" => $clean["password"],
+                    "email" => $clean["email"],
                     "state" => $clean["state"],
                     "city" => $clean["city"],
                     "company" => $clean["company"],
-                    "confirmed" => (int)$clean["confirmed"]
+                    "confirmed" => (isset($clean["confirmed"]) && $clean["confirmed"] == "on") ? 1 :  0
                 ),
-                "user_id" => $clean["id"]
+                "user_id" => $id
             );
+            if($clean["password"] <> ""){
+                $params["user"]["pasword"] = Tool::getHash("sha256", $clean["password"], HASH_KEY);
+            }
             $this->m->edit($params);
             $this->redirect("users/index");
         }
@@ -66,7 +67,11 @@
     }
     
     public function removeOne($id){
-        
+        $params = array(
+            "user_id" => $id
+        );
+        $this->m->remove($params);
+        $this->redirect("users/index");
     }
 
 }

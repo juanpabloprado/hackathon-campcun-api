@@ -22,8 +22,8 @@
             <td><?=$user["company"]?></td>
             <td><?=($user["confirmed"]) ? "si" : "no";?></td>
             <td>
-                <a href="<?=URL?>index.php/users/viewEdit/<?=$user["id"]?>"><i class="glyphicon glyphicon-eye-open"></i></a>
-                <a href="<?=URL?>index.php/users/removeOne/<?=$user["id"]?>"><i class="glyphicon glyphicon-remove"></i></a>
+                <a href="<?=URL?>index.php?url=users/viewEdit/<?=$user["id"]?>"><i class="glyphicon glyphicon-eye-open"></i></a>
+                <a style="cursor: pointer" class="delete" data-id="<?=$user["id"]?>"><i class="glyphicon glyphicon-remove"></i></a>
             </td>
         </tr>
         <? endforeach;?>
@@ -34,3 +34,18 @@
     </div>
     <? endif;?>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".delete").click(function(e){
+            e.preventDefault;
+            
+            
+            var id = $(this).attr("data-id");
+            var r = confirm("Estas seguro de que deseas borrar éste elemento?");
+            if (r == true) {
+                window.location.href = "<?=URL?>index.php?url=users/removeOne/"+id;
+            } 
+        });
+    });
+</script>

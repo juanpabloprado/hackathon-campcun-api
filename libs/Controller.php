@@ -197,25 +197,29 @@
     *  Convierte datos HTML y los caracteres especiales a un código más seguro.
     *  <> = &amp;gt;&amp;lt;
     */ 
-    protected function cleanArray($dirty){
-        $clean = array();
-        foreach ($dirty as $key => $value){
-            if(is_array($value)){
-                foreach ($value as $keyA => $valueA) {
-                    if(is_array($valueA)){
-                        foreach ($valueA as $keyB => $valueB) {
-                            $clean[$key][$keyA][$keyB] = htmlentities($valueB);
-                        }
-                    } else {
-                        $clean[$key][$keyA] = htmlentities($valueA);
-                    }
-                }
+    protected function cleanArray($requestArray){
+        $newArray = array();
+        foreach($requestArray as $key => $value){
+            if(is_array($requestArray[$key])){
+                $newArray[$key] = $this->cleanArray($requestArray[$key]);
             } else {
-                $clean[$key] = htmlentities($value);
+                $newArray[$key] = htmlentities($value);
             }
         }
-        return $clean;
+        return $newArray;
     }
+    protected function dirtyArray($clean){
+        $newArray = array();
+        foreach($clean as $key => $value){
+            if(is_array($clean[$key])){
+                $newArray[$key] = $this->clean($clean[$key]);
+            } else {
+                $newArray[$key] = html_entity_decode($value);
+            }
+        }
+        return $newArray;
+    }
+    
     
     protected function cleanArrayForJson($array){
         $clean = array();

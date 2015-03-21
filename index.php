@@ -5,7 +5,7 @@
  * ------------------------------------- */
 
 ini_set('display_errors', 1); // 0 para no mostrar errores
-
+header('Content-Type: text/html; charset=UTF-8');
 define('VER', "0.2");
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', realpath(dirname(__FILE__)).DS);

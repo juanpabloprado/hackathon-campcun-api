@@ -10,8 +10,8 @@
         <tr>
             <td><?=$todo["todo"]?></td>
             <td>
-                <a href="<?=URL?>index.php/todos/viewEdit/<?=$todo["id"]?>"><i class="glyphicon glyphicon-eye-open"></i></a>
-                <a href="<?=URL?>index.php/todos/removeOne/<?=$todo["id"]?>"><i class="glyphicon glyphicon-remove"></i></a>
+                <a href="<?=URL?>index.php?url=todos/viewEdit/<?=$todo["id"]?>"><i class="glyphicon glyphicon-eye-open"></i></a>
+                <a class="delete" data-id="<?=$todo["id"]?>"><i class="glyphicon glyphicon-remove"></i></a>
             </td>
         </tr>
         <? endforeach;?>
@@ -22,3 +22,16 @@
     </div>
     <? endif;?>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".delete").click(function(e){
+            e.preventDefault;
+            var id = $(this).attr("data-id");
+            var r = confirm("Estas seguro de que deseas borrar éste elemento?");
+            if (r == true) {
+                window.location.href = "<?=URL?>index.php?url=todos/removeOne/"+id;
+            } 
+        });
+    });
+</script>

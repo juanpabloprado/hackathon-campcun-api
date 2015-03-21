@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Camp-Cun Backend</title>
+        <meta charset="utf-8" />
         <link rel="stylesheet" href="<?=$this->cssRoute?>bootstrap.min.css"/>
         <script type="text/javascript" src="<?=$this->jsRoute?>jquery.js"></script>
         <script type="text/javascript" src="<?=$this->jsRoute?>bootstrap.js"></script>

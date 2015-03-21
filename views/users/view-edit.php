@@ -1,11 +1,11 @@
 <div class="container">
     <h1>Editar Usuario #<?=$this->user["id"]?></h1>
-    <form id="editUserForm" action="<?=URL?>index.php?url=users/viewEdit" method="POST">
+    <form id="editUserForm" action="<?=URL?>index.php?url=users/viewEdit/<?=$this->user["id"]?>" method="POST" enctype="UTF-8">
         <div class="form-group col-sm-12">
-            <input class="form-control" type="text" name="name" placeholder="Nombre" value="<?=$user["name"]?>" />
+            <input class="form-control" type="text" name="name" placeholder="Nombre" value="<?=$this->user["name"]?>" />
         </div>
         <div class="form-group col-sm-12">
-            <input class="form-control" type="email" name="email" placeholder="Email" value="<?=$user["name"]?>" />
+            <input class="form-control" type="email" name="email" placeholder="Email" value="<?=$this->user["email"]?>" />
         </div>
         <div class="form-group col-sm-12">
             <input id="pass1" class="form-control" type="password" name="password" placeholder="Password" />
@@ -22,10 +22,10 @@
             </select>
         </div>
         <div class="form-group col-sm-12">
-            <input class="form-control" type="text" name="city" placeholder="Ciudad" value="<?=$user["city"]?>" />
+            <input class="form-control" type="text" name="city" placeholder="Ciudad" value="<?=$this->user["city"]?>" />
         </div>
         <div class="form-group col-sm-12">
-            <input class="form-control" type="text" name="company" placeholder="Compa&ntilde;ia" value="<?=$user["company"]?>" />
+            <input class="form-control" type="text" name="company" placeholder="Compa&ntilde;ia" value="<?=$this->user["company"]?>" />
         </div>
         <div class="form-group col-sm-12">
             <label class="form-inline">
@@ -48,10 +48,10 @@
             e.preventDefault();
             var pass1 = $("#pass1").val();
             var pass2 = $("#pass2").val();
-            if(pass1 !== ""){
+            if(pass1 == ""){
                 $("#editUserForm").submit();
             } else {
-                if(pass1 == pass2 && ){
+                if(pass1 == pass2){
                     $("#alert").show();
                 }
             }
