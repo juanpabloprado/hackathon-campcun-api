@@ -4,5 +4,64 @@
     margin-right: 10px;
 }
 body {
-    margin: 50px;
+    
+}
+#viewContent {
+    width: 100%;
+    display: block;
+    position: fixed;
+    overflow: hidden;
+    top: 50px;
+    bottom: 50px;
+    background: grey;
+    
+}
+#mainMenu {
+    background: #134074 !important;
+}
+#tabs {
+    width: 100%;
+    display: block;
+    position: fixed;
+    overflow: hidden;
+    bottom: 0;
+    height: 50px;
+    background: #134074;
+}
+#tabs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#tabs ul li {
+    display: block;
+    width: 33%;
+    height: 50px;
+    float: left;
+}
+#tabs ul li a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+#tabs ul li a.current {
+    background: #52B2CF;
+}
+#tabs ul li a:hover {
+    background: #52B2CF;
+}
+.navbar-brand {
+    color: white !important;
+}
+.viewC {
+    height: 100%;
+    display: block;
+    width: 100%;
+    overflow-y: scroll;
 }

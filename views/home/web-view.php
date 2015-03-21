@@ -23,14 +23,43 @@
                 <a class="navbar-brand" href=""><img class="logo" src="views/home/img/logo.png" /> Camp-cun</a>
             </div>
             <div class="collapse navbar-collapse" id="menuButtons">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="caret"></i></a>
+                    </li>
+                </ul>
                 <div search-form></div>
             </div><!-- /.navbar-collapse -->
         </nav>
-        <div class="container-fluid" id="mainContainer">
-            <div class="row">
-                
-                
-            </div>
+        <div id="viewContent">
+            <div ng-show="appF.mainView == 'map'" id="map" class="viewC"></div>
+            <div ng-show="appF.mainView == 'directory'" id="directory" class="viewC" directory></div>
+            <div ng-show="appF.mainView == 'todos'" id="todos" class="viewC" todos></div>
+        </div>
+        <div id="tabs">
+            <ul>
+                <li>
+                    <a ng-class="{'current':appF.mainView == 'map'}"
+                       ng-click="appF.mainView = 'map'">
+                        <i class="glyphicon glyphicon-map-marker"></i>
+                        Mapa
+                    </a>
+                </li>
+                <li>
+                    <a ng-class="{'current':appF.mainView == 'directory'}"
+                       ng-click="appF.mainView = 'directory'">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        Directorio
+                    </a>
+                </li>
+                <li>
+                    <a ng-class="{'current':appF.mainView == 'todos'}"
+                       ng-click="appF.mainView = 'todos'">
+                        <i class="glyphicon glyphicon-check"></i>
+                        List@?
+                    </a>
+                </li>
+            </ul>
         </div>
     </body>
     <script src="views/home/js/angular.js"></script>
