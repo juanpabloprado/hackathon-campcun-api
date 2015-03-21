@@ -20,7 +20,7 @@
         </div>
         <div class="form-group col-sm-12">
             *
-            <input class="form-control" type="text" name="name" placeholder="Nombre" value="<?=$this->place["name"]?>" />
+            <input class="form-control" type="text" name="name" placeholder="Nombre del Lugar" value="<?=$this->place["name"]?>" />
         </div>
         <div class="form-group col-sm-12">
             <textarea name="address" cols="30" rows="3" class="form-control">

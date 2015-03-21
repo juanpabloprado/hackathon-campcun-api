@@ -35,7 +35,7 @@
                 "place" => array(
                     "name" => $clean["name"],
                     "address" => $clean["address"],
-                    "company" => $user["company"],
+                    "company" => $clean["company"],
                     "phone" => $clean["phone"],
                     "latitude" => floatval($_POST["latitude"]),
                     "longitude" => floatval($_POST["longitude"]),
@@ -64,7 +64,7 @@
                 "place" => array(
                     "name" => $clean["name"],
                     "address" => $clean["address"],
-                    "company" => $user["company"],
+                    "company" => $clean["company"],
                     "phone" => $clean["phone"],
                     "latitude" => filter_var($_POST["latitude"], FILTER_VALIDATE_FLOAT),
                     "longitude" => filter_var($_POST["longitude"], FILTER_VALIDATE_FLOAT),

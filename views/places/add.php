@@ -21,7 +21,7 @@
         </div>
         <div class="form-group col-sm-12">
             *
-            <input id="name" class="form-control" type="text" name="name" placeholder="Nombre" />
+            <input id="name" class="form-control" type="text" name="name" placeholder="Nombre del Lugar" />
         </div>
         <div class="form-group col-sm-12">
             <label>Dirección</label>
