@@ -23,9 +23,11 @@
     }
     
     public function addNew(){
+        $userModel = $this->loadModel("user");
+        $this->view->users = $userModel->getEm();
         if(isset($_POST) && !empty($_POST)){
             $clean = $this->clean($_POST);
-            $userModel = $this->loadModel("user");
+            
             $user = $userModel->get($clean["user_id"]);
             $params = array(
                 "place" => array(
@@ -33,11 +35,12 @@
                     "address" => $clean["address"],
                     "company" => $user["company"],
                     "phone" => $clean["phone"],
-                    "latitude" => $clean["latitude"],
-                    "longitude" => $clean["longitude"],
+                    "latitude" => floatval($_POST["latitude"]),
+                    "longitude" => floatval($_POST["longitude"]),
                     "email" => $user["email"],
                     "url" => $clean["url"],
                     "img_url" => $clean["img_url"],
+                    "price_per_person" => ($clean["price_per_person"] !== "") ? (int)$clean["price_per_person"] : 0,
                     "pets" => (isset($clean["pets"]) && $clean["pets"] == "on") ? 1 :  0
                 )
             );
@@ -53,7 +56,6 @@
         $this->view->place = $this->m->get($id);
         if(isset($_POST) && !empty($_POST)){
             $clean = $this->cleanArray($_POST);
-            $userModel = $this->loadModel("user");
             $user = $userModel->get($clean["user_id"]);
             $params = array(
                 "place" => array(
@@ -61,11 +63,12 @@
                     "address" => $clean["address"],
                     "company" => $user["company"],
                     "phone" => $clean["phone"],
-                    "latitude" => $clean["latitude"],
-                    "longitude" => $clean["longitude"],
+                    "latitude" => filter_var($_POST["latitude"], FILTER_VALIDATE_FLOAT),
+                    "longitude" => filter_var($_POST["longitude"], FILTER_VALIDATE_FLOAT),
                     "email" => $user["email"],
                     "url" => $clean["url"],
                     "img_url" => $clean["img_url"],
+                    "price_per_person" => ($clean["price_per_person"] !== "") ? floatval($clean["price_per_person"]) : 0.00,
                     "pets" => (isset($clean["pets"]) && $clean["pets"] == "on") ? 1 :  0
                 ),
                 "place_id" => $id

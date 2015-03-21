@@ -5,7 +5,8 @@
         <link rel="stylesheet" href="<?=$this->cssRoute?>bootstrap.min.css"/>
         <script type="text/javascript" src="<?=$this->jsRoute?>jquery.js"></script>
         <script type="text/javascript" src="<?=$this->jsRoute?>bootstrap.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBThXd6ah49EH03wttziSsXbj8Fl-j1DT4"></script>
+        <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBThXd6ah49EH03wttziSsXbj8Fl-j1DT4"></script>-->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     </head>
     <body style="padding-top: 50px;">
         <? if(Session::getKey("loggedIn")) :?>

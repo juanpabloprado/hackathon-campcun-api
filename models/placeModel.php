@@ -5,8 +5,8 @@
 
     public function __construct() {
         parent::__construct();
-        $this->getterFields = array("id","name","address","latitude","longitude","company","user_id","phone","email","url","img_url","pets");
-        $this->setterFields = array("name","address","latitude","longitude","company","user_id","phone","email","url","img_url","pets");
+        $this->getterFields = array("id","name","address","latitude","longitude","company","user_id","phone","email","url","img_url","pets","price_per_person");
+        $this->setterFields = array("name","address","latitude","longitude","company","user_id","phone","email","url","img_url","pets","price_per_person");
         $this->requiredFields = array();
         $this->arrayFields = array();
         $this->idFields = array();

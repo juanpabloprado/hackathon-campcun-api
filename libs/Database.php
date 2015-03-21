@@ -64,15 +64,12 @@
         foreach ($data as $key => $value) {
             if($value === 0 || $value === "0"){
                 $fD .= ($f <> count($data)) ? "`{$key}`= 0," : "`{$key}`= 0";
-            } else if(is_numeric($value)){
-                $val = (int)$value;
-                $fD .= ($f <> count($data)) ? "`{$key}`= {$val}," : "`{$key}`= {$val}";
             } else if($value <> ""){
                 $val = "'{$value}'";
                 $fD .= ($f <> count($data)) ? "`{$key}`= {$val}," : "`{$key}`= {$val}";
             } else if($value == ""){
                 $fD .= ($f <> count($data)) ? "`{$key}`= ''," : "`{$key}`= ''";
-            }
+            } 
             $f++;
         }
         $sql = "UPDATE {$table} SET {$fD} WHERE {$where}";

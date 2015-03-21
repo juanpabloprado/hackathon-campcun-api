@@ -42,7 +42,7 @@
         $routeView = (!$skin) ? VIEWSPATH.$view[0].DS.$view[1].".php" : VIEWSPATH.$skin.DS.$view[0].DS.$view[1].".php"; 
         $this->jsRoute = (!$skin) ? SKINROUTE."js/" : SKINROUTE.$skin."/js/";
         $this->cssRoute = (!$skin) ? SKINROUTE."css/" : SKINROUTE.$skin."/css/";
-        $this->imgRoute = (!$skin) ? SKINROUTE."img/" : SKINROUTE.$skin."/img/";
+        $this->imgRoute = (!$skin) ? SKINROUTE."images/" : SKINROUTE.$skin."/images/";
         $skinRoute = (!$skin) ? SKINPATH : SKINPATH.$skin.DS;
         $skinPath = (!$skin) ? VIEWSPATH : VIEWSPATH.$skin.DS;
         if(is_readable($routeView)){
