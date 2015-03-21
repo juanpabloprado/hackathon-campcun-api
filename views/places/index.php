@@ -1,5 +1,7 @@
 <div class="container">
     <h1>Listado de lugares para camping</h1>
+    <a class="btn btn-success" href="<?=URL?>index.php?url=places/addNew">Agregar Lugar</a>
+    <br /><br />
     <? if (count($this->places) > 0) :?>
     <table class="table table-striped">
         <tr>

@@ -40,8 +40,6 @@
         $this->view->place = $this->m->get($id);
         if(isset($_POST) && !empty($_POST)){
             $clean = $this->cleanArray($_POST);
-            $userModel = $this->loadModel("user");
-            $user = $userModel->get($clean["user_id"]);
             $params = array(
                 "todo" => array(
                     "todo" => $clean["todo"]

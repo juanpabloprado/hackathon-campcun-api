@@ -14,7 +14,7 @@
 
 
      public function getEm($where = false) {
-        $data = $this->getAll($where);
+        $places = $this->getAll($where);
         return $places;
     }
 

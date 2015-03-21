@@ -48,6 +48,8 @@
     }
     
     public function viewEdit($id) {
+        $userModel = $this->loadModel("user");
+        $this->view->users = $userModel->getEm();
         $this->view->place = $this->m->get($id);
         if(isset($_POST) && !empty($_POST)){
             $clean = $this->cleanArray($_POST);

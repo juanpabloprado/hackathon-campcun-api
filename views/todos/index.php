@@ -1,6 +1,8 @@
 <div class="container">
     <h1>Listado de TODOS para camping</h1>
-    <? if (count($this->users) > 0) :?>
+    <a class="btn btn-success" href="<?=URL?>index.php?url=todos/addNew">Agregar To-Do</a>
+    <br /><br />
+    <? if (count($this->todos) > 0) :?>
     <table class="table table-striped">
         <tr>
             <th>To-Do</th>

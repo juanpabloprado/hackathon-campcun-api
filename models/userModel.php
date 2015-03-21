@@ -5,8 +5,8 @@
 
     public function __construct() {
         parent::__construct();
-        $this->getterFields = array();
-        $this->setterFields = array();
+        $this->getterFields = array("id","name","email","password","state","city","company","confirmed");
+        $this->setterFields = array("name","email","password","state","city","company","confirmed");
         $this->requiredFields = array();
         $this->arrayFields = array();
         $this->idFields = array();
