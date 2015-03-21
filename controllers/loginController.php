@@ -12,14 +12,24 @@
             if(isset($_REQUEST["email"]) && isset($_REQUEST["password"])){
                 $email = $_REQUEST["email"];
                 $pass = $_REQUEST["password"];
-                echo "<pre>";
-                var_dump($email,$pass);
-                die();
+                $isvalid = $this->m->login($email,$pass);
+                if($isvalid){
+                    Session::setKey("loggedIn",1);
+                    Session::setKey("user",$email);
+                    $this->redirect();
+                } else {
+                    $this->view->flash("Sus credenciales no son validas","danger");
+                }
             }
         } else {
-            $this->controller->redirect();
+            $this->redirect();
         }
         
+    }
+    
+    public function logout(){
+        Session::destroyKey();
+        $this->redirect("login/index");
     }
 
 }

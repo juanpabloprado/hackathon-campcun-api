@@ -7,8 +7,7 @@
     }
 
     public function index() {
-        echo "Hello World";
-        $this->view = array("home/index");
+        $this->view->render("home/index");
     }
 
 }

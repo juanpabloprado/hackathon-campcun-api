@@ -5,7 +5,7 @@
         <script type="text/javascript" src="<?=$this->jsRoute?>jquery.js"></script>
         <script type="text/javascript" src="<?=$this->jsRoute?>bootstrap.js"></script>
     </head>
-    <body>
+    <body style="padding-top: 50px;">
         <? if(Session::getKey("loggedIn")) :?>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="mainMenu">
             <div class="navbar-header">
@@ -17,19 +17,21 @@
                 </button>
                 <a class="navbar-brand" href="#">Camp-Cun Backend</a>
             </div>
-            <div class="collapse navbar-collapse" id="menuButtons">
-<!--                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
+            <div class="collapse navbar-collapse" id="menuButtons" style="padding-right:30px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="<?=URL?>index.php?url=places/index">Lugares</a>
                     </li>
-                </ul>-->
+                    <li>
+                        <a href="<?=URL?>index.php?url=users/index">Usuarios</a>
+                    </li>
+                    <li>
+                        <a href="<?=URL?>index.php?url=todos/index">To-dos</a>
+                    </li>
+                    <li>
+                        <a href="">Logout</a>
+                    </li>
+                </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
         <? endif;?>

@@ -11,6 +11,12 @@
 		$this->tools = new Tool;
     }
     
+    public function flash($flash,$type){
+        echo "<div class='alert alert-{$type}' role='alert'>";
+        echo $flash;
+        echo "</div>";
+    }
+    
     public function renderFlash($view,$flash,$type,$skin=false){
         $view = explode("/", $view);
         
