@@ -100,8 +100,8 @@ App.factory('AppF', ['$q','AjaxS','LocalS',
             subMenu: false,
             loggedIn: false,
             path: "views/home",
-//            api: "http://tu-desarrollo.com/apps/camp-cun-api/",
-            api: "index.php?url=",
+            api: "http://tu-desarrollo.com/apps/camp-cun-api/",
+//            api: "index.php?url=",
             getAll: function(){
                 return $q.all([
                     Ajax.request("post",this.api+"places/json",{}),
